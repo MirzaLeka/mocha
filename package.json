@@ -1,0 +1,17 @@
+{
+  "name": "testing_node_apps",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha **/*.test.js"
+  },
+  "author": "mirza",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^3.0.0"
+  },
+  "dependencies": {
+    "nodemon": "^1.17.3"
+  }
+}
