@@ -10,3 +10,12 @@ throw new Error(`Expected 44, but got ${res}`);
 
 });
 
+it('Solution is 25', () => {
+
+let solution = utils.multiply(5);
+
+if (solution != 25) {
+throw new Error(`Expected 25, but got ${solution}`);
+}
+
+});
