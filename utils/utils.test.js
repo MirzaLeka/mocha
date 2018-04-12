@@ -14,6 +14,15 @@ throw new Error(`Expected 44, but got ${res}`);
 
 });
 
+// Asynch test
+it('Should asynch add two numbers', (done) => {
+utils.asynchAdd(4,3, (sum) => {
+expect(sum).toBe(7).toBeA('number');
+done(); //At the end
+});
+
+});
+
 it('Solution is 25', () => {
 
 let solution = utils.multiply(5);
