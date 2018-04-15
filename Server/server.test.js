@@ -2,8 +2,13 @@ const request = require("supertest");
 var app = require('./server').app;
 const expect = require("expect");
 
-it('should return hello world response', (done) => 
+describe('Testing Server.test.js', () => {
+
+    describe('Testing route /', () => {
+    
+        it('should return hello world response', (done) => 
 {
+
 
  request(app) // const app u server.js-u koji smo exportali
 .get("/") // na kojoj se ruti nalazi ono sto testiramo =>  '/'
@@ -28,22 +33,36 @@ expect(res.body).toInclude({
 
 });
 
+    
+    });
+
+    
+    describe('Testing /users', () => {
+
+        it('should check list of users', (done) => {
+
+            request(app)
+            .get("/users")
+            .expect((response) => {
+            //ocekujemo da array sadrzi neki objekat sa ovim svojstivma
+            expect(response.body).toInclude(
+              {
+                name: "Mirza",
+                age: 23
+              }
+            );
+            
+            })
+            .end(done);
+            //RADI!
+            });
+                
+            });
+            
+
+    });
+
+
+
+
 // npm run test watch
-
-it('should check list of users', (done) => {
-
-request(app)
-.get("/users")
-.expect((response) => {
-//ocekujemo da array sadrzi neki objekat sa ovim svojstivma
-expect(response.body).toInclude(
-  {
-    name: "Mirza",
-    age: 23
-  }
-);
-
-})
-.end(done);
-//RADI!
-});
